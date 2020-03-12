@@ -9,7 +9,7 @@ public class TicTacToe {
     private static final char DOT_AI = 'O';
     private static final char DOT_EMPTY = '_';
     //
-    private static int lenght_win;
+    private static int lenghtWin;
     //
 
     private static int fieldSizeX;
@@ -22,7 +22,7 @@ public class TicTacToe {
     private static void initField() {
         fieldSizeY = 5; // 5; //3;
         fieldSizeX = 5; // 5; //3;
-        lenght_win = fieldSizeX-1;
+        lenghtWin = fieldSizeX-1;
         field = new char[fieldSizeY][fieldSizeX];
         for (int y = 0; y < fieldSizeY; y++) {
             for (int x = 0; x < fieldSizeX; x++) {
@@ -130,17 +130,17 @@ public class TicTacToe {
         boolean row = true;
 
 
-         for(int i = X1; i<X1+lenght_win; i++){
+         for(int i = X1; i<X1+lenghtWin; i++){
             diagonal_1 = (diagonal_1 && field[i][i] == c);
-            diagonal_2 = (diagonal_2 && field[i][(X1+lenght_win)-i-1] == c);
+            diagonal_2 = (diagonal_2 && field[i][(X1+lenghtWin)-i-1] == c);
         }
 
         if (diagonal_1 || diagonal_2) return true;
 
-        for(int i = X1; i <X1+lenght_win; i++){
+        for(int i = X1; i <X1+lenghtWin; i++){
             column = true;
             row = true;
-            for (int j = Y1; j <Y1+lenght_win; j++) {
+            for (int j = Y1; j <Y1+lenghtWin; j++) {
                 column = (column && field[i][j] == c);
                 row = (row && field[j][i] == c);
             }
@@ -156,7 +156,7 @@ public class TicTacToe {
      */
     public static boolean checkWinField(char c){
 
-        int finish = (field.length-(lenght_win-1));
+        int finish = (field.length-(lenghtWin-1));
         for (int x=0; x < finish; x++){
             for(int y = 0; y < finish; y++) {
                if(checkWin(c, x, y)) return true;
